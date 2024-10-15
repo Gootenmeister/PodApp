@@ -35,7 +35,7 @@ namespace PodApp
 
             try
             {
-                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName)) //jobbigt att få med fil till build dir
                 {
                     if (stream != null)
                     {
@@ -54,6 +54,16 @@ namespace PodApp
             catch (Exception ex)
             {
                 MessageBox.Show("Något gick fel: " + ex.Message);
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Tryck inte på 'Yes'", "Öh", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                MessageBox.Show(">:(", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }
