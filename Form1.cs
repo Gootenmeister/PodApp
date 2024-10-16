@@ -71,32 +71,26 @@ namespace PodApp
 
                 XmlDocument rssDoc = new XmlDocument();
 
-                // Läs RSS från URL
+    
                 rssDoc.Load(rssUrl);
 
+                XmlNode titleNode = rssDoc.SelectSingleNode("//channel/title");
 
-                XmlNodeList rssItems = rssDoc.SelectNodes("rss/channel/item");
-
-                //// Rensa DataGridView innan vi lägger till nya data
-                //dataGridView.Rows.Clear();
-
-                foreach (XmlNode item in rssItems)
+                if (titleNode == null)
                 {
-                    string title = item.SelectSingleNode("title")?.InnerText;
-                    string description = item.SelectSingleNode("description")?.InnerText;
-                    string pubDate = item.SelectSingleNode("pubDate")?.InnerText;
-
-
-                    int rowIndex = dataGridView.Rows.Add();
-
-                    dataGridView.Rows[rowIndex].Cells[0].Value = namn;
-                    dataGridView.Rows[rowIndex].Cells[1].Value = title;
-                    dataGridView.Rows[rowIndex].Cells[2].Value = pubDate;
+                    MessageBox.Show("Titel kunde inte hittas i RSS-flödet.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
+
+                string officielltNamn = titleNode.InnerText;
+
+                int rowIndex = dataGridView.Rows.Add();
+
+                dataGridView.Rows[rowIndex].Cells[0].Value = namn;
+                dataGridView.Rows[rowIndex].Cells[1].Value = officielltNamn;
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show($"Fel vid bearbetning av RSS: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
