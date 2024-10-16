@@ -53,7 +53,7 @@ namespace PodApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Något gick fel: " + ex.Message);
+                MessageBox.Show("Något gick fel:Försök igen " + ex.Message);
             }
         }
 
