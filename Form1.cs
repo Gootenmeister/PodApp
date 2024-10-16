@@ -57,7 +57,8 @@ namespace PodApp
 
         private void KategoriNamnTextBox(object sender, EventArgs e)
         {
-
+            // den här ska hämta vald kategori från kategoricomboboxen och sen kunna ändra vald kategori i en array
+            // vi skulle även här kunna lagra användarens preferenser i en xml eller json och sen läsa in i en array enkelt
         }
 
         private void LäggTillPodd_Click(object sender, EventArgs e)

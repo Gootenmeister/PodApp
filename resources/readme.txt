@@ -1,0 +1,1 @@
+här kan vi slänga in alla xml-filer som ska läsas- inklusive temporära som vi vill testköra och ladda in som category.xml som ligger här!
