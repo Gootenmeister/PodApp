@@ -2,6 +2,8 @@ using System;
 using System.Media;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Net.Http;
+using System.Xml;
 
 namespace PodApp
 {
@@ -24,7 +26,7 @@ namespace PodApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            String rssUrl = textBox1.Text;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
