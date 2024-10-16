@@ -28,131 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox2 = new TextBox();
-            comboBox1 = new ComboBox();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            dataGridView1 = new DataGridView();
-            Column1 = new DataGridViewTextBoxColumn();
-            Column2 = new DataGridViewTextBoxColumn();
-            Column3 = new DataGridViewTextBoxColumn();
+            UrlLänk = new TextBox();
+            LabelUrl = new Label();
+            LabelNamn = new Label();
+            AngeNamn = new TextBox();
+            VäljKategori = new ComboBox();
+            LäggTillPodd = new Button();
+            ÄndraPodd = new Button();
+            TaBortPodd = new Button();
+            dataGridView = new DataGridView();
             Avsnitt = new ListBox();
-            panel1 = new Panel();
-            groupBox1 = new GroupBox();
-            button4 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            label3 = new Label();
-            textBox3 = new TextBox();
-            comboBox2 = new ComboBox();
-            button7 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            AvsnittInfo = new Panel();
+            KategoriGroupBox = new GroupBox();
+            LäggTillKategori = new Button();
+            ÄndraKategori = new Button();
+            TaBortKategori = new Button();
+            LabelKategori = new Label();
+            NamnPåKategori = new TextBox();
+            FiltreringsComboBox = new ComboBox();
+            Återställa = new Button();
+            ColumnNamn = new DataGridViewTextBoxColumn();
+            ColumnTitel = new DataGridViewTextBoxColumn();
+            ColumnKategori = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // UrlLänk
             // 
-            textBox1.Location = new Point(92, 122);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(315, 31);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            UrlLänk.Location = new Point(92, 122);
+            UrlLänk.Name = "UrlLänk";
+            UrlLänk.Size = new Size(315, 31);
+            UrlLänk.TabIndex = 0;
+            UrlLänk.TextChanged += textBox1_TextChanged;
             // 
-            // label1
+            // LabelUrl
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 122);
-            label1.Name = "label1";
-            label1.Size = new Size(45, 25);
-            label1.TabIndex = 1;
-            label1.Text = "URL";
+            LabelUrl.AutoSize = true;
+            LabelUrl.Location = new Point(12, 122);
+            LabelUrl.Name = "LabelUrl";
+            LabelUrl.Size = new Size(45, 25);
+            LabelUrl.TabIndex = 1;
+            LabelUrl.Text = "URL";
             // 
-            // label2
+            // LabelNamn
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(17, 165);
-            label2.Name = "label2";
-            label2.Size = new Size(69, 25);
-            label2.TabIndex = 2;
-            label2.Text = "NAMN";
+            LabelNamn.AutoSize = true;
+            LabelNamn.Location = new Point(17, 165);
+            LabelNamn.Name = "LabelNamn";
+            LabelNamn.Size = new Size(69, 25);
+            LabelNamn.TabIndex = 2;
+            LabelNamn.Text = "NAMN";
             // 
-            // textBox2
+            // AngeNamn
             // 
-            textBox2.Location = new Point(92, 162);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(315, 31);
-            textBox2.TabIndex = 3;
+            AngeNamn.Location = new Point(92, 162);
+            AngeNamn.Name = "AngeNamn";
+            AngeNamn.Size = new Size(315, 31);
+            AngeNamn.TabIndex = 3;
             // 
-            // comboBox1
+            // VäljKategori
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(413, 165);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(182, 33);
-            comboBox1.TabIndex = 4;
-            comboBox1.Text = "Välj kategori";
+            VäljKategori.FormattingEnabled = true;
+            VäljKategori.Location = new Point(413, 165);
+            VäljKategori.Name = "VäljKategori";
+            VäljKategori.Size = new Size(182, 33);
+            VäljKategori.TabIndex = 4;
+            VäljKategori.Text = "Välj kategori";
             // 
-            // button1
+            // LäggTillPodd
             // 
-            button1.Location = new Point(12, 215);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "lägg Till";
-            button1.UseVisualStyleBackColor = true;
+            LäggTillPodd.Location = new Point(12, 215);
+            LäggTillPodd.Name = "LäggTillPodd";
+            LäggTillPodd.Size = new Size(112, 34);
+            LäggTillPodd.TabIndex = 5;
+            LäggTillPodd.Text = "lägg Till";
+            LäggTillPodd.UseVisualStyleBackColor = true;
+            LäggTillPodd.Click += LäggTillPodd_Click;
             // 
-            // button2
+            // ÄndraPodd
             // 
-            button2.Location = new Point(148, 215);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 6;
-            button2.Text = "Ändra";
-            button2.UseVisualStyleBackColor = true;
+            ÄndraPodd.Location = new Point(148, 215);
+            ÄndraPodd.Name = "ÄndraPodd";
+            ÄndraPodd.Size = new Size(112, 34);
+            ÄndraPodd.TabIndex = 6;
+            ÄndraPodd.Text = "Ändra";
+            ÄndraPodd.UseVisualStyleBackColor = true;
+            ÄndraPodd.Click += ÄndraPodd_Click;
             // 
-            // button3
+            // TaBortPodd
             // 
-            button3.Location = new Point(282, 215);
-            button3.Name = "button3";
-            button3.Size = new Size(112, 34);
-            button3.TabIndex = 7;
-            button3.Text = "Ta bort";
-            button3.UseVisualStyleBackColor = true;
+            TaBortPodd.Location = new Point(282, 215);
+            TaBortPodd.Name = "TaBortPodd";
+            TaBortPodd.Size = new Size(112, 34);
+            TaBortPodd.TabIndex = 7;
+            TaBortPodd.Text = "Ta bort";
+            TaBortPodd.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView
             // 
-            dataGridView1.BackgroundColor = SystemColors.ButtonHighlight;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
-            dataGridView1.Location = new Point(-6, 281);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 62;
-            dataGridView1.Size = new Size(515, 591);
-            dataGridView1.TabIndex = 8;
-            // 
-            // Column1
-            // 
-            Column1.HeaderText = "Namn";
-            Column1.MinimumWidth = 8;
-            Column1.Name = "Column1";
-            Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            Column2.HeaderText = "Titel";
-            Column2.MinimumWidth = 8;
-            Column2.Name = "Column2";
-            Column2.Width = 150;
-            // 
-            // Column3
-            // 
-            Column3.HeaderText = "Kategori";
-            Column3.MinimumWidth = 8;
-            Column3.Name = "Column3";
-            Column3.Width = 150;
+            dataGridView.BackgroundColor = SystemColors.ButtonHighlight;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { ColumnNamn, ColumnTitel, ColumnKategori });
+            dataGridView.Location = new Point(-6, 281);
+            dataGridView.Name = "dataGridView";
+            dataGridView.RowHeadersWidth = 62;
+            dataGridView.Size = new Size(515, 591);
+            dataGridView.TabIndex = 8;
             // 
             // Avsnitt
             // 
@@ -163,85 +144,106 @@
             Avsnitt.Size = new Size(322, 304);
             Avsnitt.TabIndex = 9;
             // 
-            // panel1
+            // AvsnittInfo
             // 
-            panel1.BackColor = Color.White;
-            panel1.Location = new Point(515, 612);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(322, 248);
-            panel1.TabIndex = 10;
+            AvsnittInfo.BackColor = Color.White;
+            AvsnittInfo.Location = new Point(515, 612);
+            AvsnittInfo.Name = "AvsnittInfo";
+            AvsnittInfo.Size = new Size(322, 248);
+            AvsnittInfo.TabIndex = 10;
             // 
-            // groupBox1
+            // KategoriGroupBox
             // 
-            groupBox1.BackColor = Color.White;
-            groupBox1.Location = new Point(860, 337);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(384, 248);
-            groupBox1.TabIndex = 11;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Kategori";
+            KategoriGroupBox.BackColor = Color.White;
+            KategoriGroupBox.Location = new Point(860, 337);
+            KategoriGroupBox.Name = "KategoriGroupBox";
+            KategoriGroupBox.Size = new Size(384, 248);
+            KategoriGroupBox.TabIndex = 11;
+            KategoriGroupBox.TabStop = false;
+            KategoriGroupBox.Text = "Kategori";
             // 
-            // button4
+            // LäggTillKategori
             // 
-            button4.Location = new Point(860, 281);
-            button4.Name = "button4";
-            button4.Size = new Size(112, 34);
-            button4.TabIndex = 12;
-            button4.Text = "Lägg Till";
-            button4.UseVisualStyleBackColor = true;
+            LäggTillKategori.Location = new Point(860, 281);
+            LäggTillKategori.Name = "LäggTillKategori";
+            LäggTillKategori.Size = new Size(112, 34);
+            LäggTillKategori.TabIndex = 12;
+            LäggTillKategori.Text = "Lägg Till";
+            LäggTillKategori.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // ÄndraKategori
             // 
-            button5.Location = new Point(981, 282);
-            button5.Name = "button5";
-            button5.Size = new Size(112, 34);
-            button5.TabIndex = 13;
-            button5.Text = "Ändra";
-            button5.UseVisualStyleBackColor = true;
+            ÄndraKategori.Location = new Point(981, 282);
+            ÄndraKategori.Name = "ÄndraKategori";
+            ÄndraKategori.Size = new Size(112, 34);
+            ÄndraKategori.TabIndex = 13;
+            ÄndraKategori.Text = "Ändra";
+            ÄndraKategori.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // TaBortKategori
             // 
-            button6.Location = new Point(1099, 282);
-            button6.Name = "button6";
-            button6.Size = new Size(112, 34);
-            button6.TabIndex = 14;
-            button6.Text = "Ta bort";
-            button6.UseVisualStyleBackColor = true;
+            TaBortKategori.Location = new Point(1099, 282);
+            TaBortKategori.Name = "TaBortKategori";
+            TaBortKategori.Size = new Size(112, 34);
+            TaBortKategori.TabIndex = 14;
+            TaBortKategori.Text = "Ta bort";
+            TaBortKategori.UseVisualStyleBackColor = true;
             // 
-            // label3
+            // LabelKategori
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(857, 186);
-            label3.Name = "label3";
-            label3.Size = new Size(83, 25);
-            label3.TabIndex = 15;
-            label3.Text = "Kategori";
+            LabelKategori.AutoSize = true;
+            LabelKategori.Location = new Point(857, 186);
+            LabelKategori.Name = "LabelKategori";
+            LabelKategori.Size = new Size(83, 25);
+            LabelKategori.TabIndex = 15;
+            LabelKategori.Text = "Kategori";
             // 
-            // textBox3
+            // NamnPåKategori
             // 
-            textBox3.Location = new Point(860, 217);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(362, 31);
-            textBox3.TabIndex = 16;
-            textBox3.TextChanged += textBox3_TextChanged;
+            NamnPåKategori.Location = new Point(860, 217);
+            NamnPåKategori.Name = "NamnPåKategori";
+            NamnPåKategori.Size = new Size(362, 31);
+            NamnPåKategori.TabIndex = 16;
+            NamnPåKategori.TextChanged += textBox3_TextChanged;
             // 
-            // comboBox2
+            // FiltreringsComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(92, 61);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(315, 33);
-            comboBox2.TabIndex = 17;
-            comboBox2.Text = "Filtrera";
+            FiltreringsComboBox.FormattingEnabled = true;
+            FiltreringsComboBox.Location = new Point(92, 61);
+            FiltreringsComboBox.Name = "FiltreringsComboBox";
+            FiltreringsComboBox.Size = new Size(315, 33);
+            FiltreringsComboBox.TabIndex = 17;
+            FiltreringsComboBox.Text = "Filtrera";
             // 
-            // button7
+            // Återställa
             // 
-            button7.Location = new Point(1169, 12);
-            button7.Name = "button7";
-            button7.Size = new Size(112, 34);
-            button7.TabIndex = 18;
-            button7.Text = "Återställa";
-            button7.UseVisualStyleBackColor = true;
+            Återställa.Location = new Point(1169, 12);
+            Återställa.Name = "Återställa";
+            Återställa.Size = new Size(112, 34);
+            Återställa.TabIndex = 18;
+            Återställa.Text = "Återställa";
+            Återställa.UseVisualStyleBackColor = true;
+            // 
+            // ColumnNamn
+            // 
+            ColumnNamn.HeaderText = "Namn";
+            ColumnNamn.MinimumWidth = 8;
+            ColumnNamn.Name = "ColumnNamn";
+            ColumnNamn.Width = 150;
+            // 
+            // ColumnTitel
+            // 
+            ColumnTitel.HeaderText = "Titel";
+            ColumnTitel.MinimumWidth = 8;
+            ColumnTitel.Name = "ColumnTitel";
+            ColumnTitel.Width = 150;
+            // 
+            // ColumnKategori
+            // 
+            ColumnKategori.HeaderText = "Kategori";
+            ColumnKategori.MinimumWidth = 8;
+            ColumnKategori.Name = "ColumnKategori";
+            ColumnKategori.Width = 150;
             // 
             // Form1
             // 
@@ -249,57 +251,57 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(1636, 882);
-            Controls.Add(button7);
-            Controls.Add(comboBox2);
-            Controls.Add(textBox3);
-            Controls.Add(label3);
-            Controls.Add(button6);
-            Controls.Add(button5);
-            Controls.Add(button4);
-            Controls.Add(groupBox1);
-            Controls.Add(panel1);
+            Controls.Add(Återställa);
+            Controls.Add(FiltreringsComboBox);
+            Controls.Add(NamnPåKategori);
+            Controls.Add(LabelKategori);
+            Controls.Add(TaBortKategori);
+            Controls.Add(ÄndraKategori);
+            Controls.Add(LäggTillKategori);
+            Controls.Add(KategoriGroupBox);
+            Controls.Add(AvsnittInfo);
             Controls.Add(Avsnitt);
-            Controls.Add(dataGridView1);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(dataGridView);
+            Controls.Add(TaBortPodd);
+            Controls.Add(ÄndraPodd);
+            Controls.Add(LäggTillPodd);
+            Controls.Add(VäljKategori);
+            Controls.Add(AngeNamn);
+            Controls.Add(LabelNamn);
+            Controls.Add(LabelUrl);
+            Controls.Add(UrlLänk);
             Font = new Font("Segoe UI Semibold", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Name = "Form1";
             Text = "KebabCast (pre-alpha)";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private TextBox textBox1;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox2;
-        private ComboBox comboBox1;
-        private Button button1;
-        private Button button2;
-        private Button button3;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn Column3;
+        private TextBox UrlLänk;
+        private Label LabelUrl;
+        private Label LabelNamn;
+        private TextBox AngeNamn;
+        private ComboBox VäljKategori;
+        private Button LäggTillPodd;
+        private Button ÄndraPodd;
+        private Button TaBortPodd;
+        private DataGridView dataGridView;
         private ListBox Avsnitt;
-        private Panel panel1;
-        private GroupBox groupBox1;
-        private Button button4;
-        private Button button5;
-        private Button button6;
-        private Label label3;
-        private TextBox textBox3;
-        private ComboBox comboBox2;
-        private Button button7;
+        private Panel AvsnittInfo;
+        private GroupBox KategoriGroupBox;
+        private Button LäggTillKategori;
+        private Button ÄndraKategori;
+        private Button TaBortKategori;
+        private Label LabelKategori;
+        private TextBox NamnPåKategori;
+        private ComboBox FiltreringsComboBox;
+        private Button Återställa;
+        private DataGridViewTextBoxColumn ColumnNamn;
+        private DataGridViewTextBoxColumn ColumnTitel;
+        private DataGridViewTextBoxColumn ColumnKategori;
     }
 }

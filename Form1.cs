@@ -26,7 +26,7 @@ namespace PodApp
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            String rssUrl = textBox1.Text;
+            String rssUrl = UrlLänk.Text;
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -45,6 +45,16 @@ namespace PodApp
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LäggTillPodd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ÄndraPodd_Click(object sender, EventArgs e)
         {
 
         }
