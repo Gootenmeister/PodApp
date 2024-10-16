@@ -47,18 +47,22 @@
             LäggTillKategori = new Button();
             ÄndraKategori = new Button();
             TaBortKategori = new Button();
-            LabelKategori = new Label();
+            AktuellKategori = new Label();
             NamnPåKategori = new TextBox();
             FiltreringsComboBox = new ComboBox();
             Återställa = new Button();
-            label1 = new Label();
+            LabelKategoriCBox = new Label();
             LabelTitle = new Label();
+            LabelGetFeed = new Label();
+            LabelListPodcasts = new Label();
+            LabelAvsnitt = new Label();
+            LabelPodcastDesc = new Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
             // UrlLänk
             // 
-            UrlLänk.Location = new Point(98, 107);
+            UrlLänk.Location = new Point(32, 110);
             UrlLänk.Name = "UrlLänk";
             UrlLänk.Size = new Size(315, 23);
             UrlLänk.TabIndex = 0;
@@ -67,27 +71,28 @@
             // LabelUrl
             // 
             LabelUrl.AutoSize = true;
-            LabelUrl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            LabelUrl.Location = new Point(32, 105);
+            LabelUrl.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            LabelUrl.Location = new Point(32, 86);
             LabelUrl.Name = "LabelUrl";
-            LabelUrl.Size = new Size(39, 21);
+            LabelUrl.Size = new Size(43, 21);
             LabelUrl.TabIndex = 1;
-            LabelUrl.Text = "URL";
+            LabelUrl.Text = "URL:";
+            LabelUrl.Click += LabelUrl_Click;
             // 
             // LabelNamn
             // 
             LabelNamn.AutoSize = true;
-            LabelNamn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            LabelNamn.Location = new Point(29, 147);
+            LabelNamn.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            LabelNamn.Location = new Point(32, 136);
             LabelNamn.Name = "LabelNamn";
-            LabelNamn.Size = new Size(53, 21);
+            LabelNamn.Size = new Size(57, 21);
             LabelNamn.TabIndex = 2;
-            LabelNamn.Text = "Namn";
+            LabelNamn.Text = "Namn:";
             LabelNamn.Click += LabelNamn_Click;
             // 
             // AngeNamn
             // 
-            AngeNamn.Location = new Point(98, 149);
+            AngeNamn.Location = new Point(32, 160);
             AngeNamn.Name = "AngeNamn";
             AngeNamn.Size = new Size(315, 23);
             AngeNamn.TabIndex = 3;
@@ -95,9 +100,9 @@
             // VäljKategori
             // 
             VäljKategori.FormattingEnabled = true;
-            VäljKategori.Location = new Point(494, 149);
+            VäljKategori.Location = new Point(471, 201);
             VäljKategori.Name = "VäljKategori";
-            VäljKategori.Size = new Size(201, 23);
+            VäljKategori.Size = new Size(224, 23);
             VäljKategori.TabIndex = 4;
             VäljKategori.Text = "Välj kategori";
             VäljKategori.SelectedIndexChanged += VäljKategori_SelectedIndexChanged;
@@ -114,7 +119,7 @@
             // 
             // ÄndraPodd
             // 
-            ÄndraPodd.Location = new Point(167, 201);
+            ÄndraPodd.Location = new Point(173, 201);
             ÄndraPodd.Name = "ÄndraPodd";
             ÄndraPodd.Size = new Size(112, 34);
             ÄndraPodd.TabIndex = 6;
@@ -124,7 +129,7 @@
             // 
             // TaBortPodd
             // 
-            TaBortPodd.Location = new Point(301, 201);
+            TaBortPodd.Location = new Point(322, 201);
             TaBortPodd.Name = "TaBortPodd";
             TaBortPodd.Size = new Size(112, 34);
             TaBortPodd.TabIndex = 7;
@@ -137,7 +142,7 @@
             dataGridView.BackgroundColor = SystemColors.ButtonHighlight;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { ColumnNamn, ColumnTitel, ColumnPublicering, ColumnKategori1 });
-            dataGridView.Location = new Point(32, 267);
+            dataGridView.Location = new Point(32, 276);
             dataGridView.Name = "dataGridView";
             dataGridView.RowHeadersWidth = 62;
             dataGridView.Size = new Size(663, 590);
@@ -176,25 +181,25 @@
             // 
             Avsnitt.FormattingEnabled = true;
             Avsnitt.ItemHeight = 15;
-            Avsnitt.Location = new Point(831, 246);
+            Avsnitt.Location = new Point(831, 276);
             Avsnitt.Name = "Avsnitt";
-            Avsnitt.Size = new Size(322, 304);
+            Avsnitt.Size = new Size(322, 364);
             Avsnitt.TabIndex = 9;
             Avsnitt.SelectedIndexChanged += Avsnitt_SelectedIndexChanged;
             // 
             // AvsnittInfo
             // 
             AvsnittInfo.BackColor = Color.White;
-            AvsnittInfo.Location = new Point(831, 577);
+            AvsnittInfo.Location = new Point(831, 666);
             AvsnittInfo.Name = "AvsnittInfo";
-            AvsnittInfo.Size = new Size(322, 248);
+            AvsnittInfo.Size = new Size(322, 200);
             AvsnittInfo.TabIndex = 10;
             AvsnittInfo.Paint += AvsnittInfo_Paint;
             // 
             // KategoriGroupBox
             // 
             KategoriGroupBox.BackColor = Color.White;
-            KategoriGroupBox.Location = new Point(1176, 302);
+            KategoriGroupBox.Location = new Point(1176, 276);
             KategoriGroupBox.Name = "KategoriGroupBox";
             KategoriGroupBox.Size = new Size(384, 248);
             KategoriGroupBox.TabIndex = 11;
@@ -204,7 +209,7 @@
             // 
             // LäggTillKategori
             // 
-            LäggTillKategori.Location = new Point(1176, 246);
+            LäggTillKategori.Location = new Point(1176, 239);
             LäggTillKategori.Name = "LäggTillKategori";
             LäggTillKategori.Size = new Size(112, 34);
             LäggTillKategori.TabIndex = 12;
@@ -214,7 +219,7 @@
             // 
             // ÄndraKategori
             // 
-            ÄndraKategori.Location = new Point(1312, 246);
+            ÄndraKategori.Location = new Point(1312, 239);
             ÄndraKategori.Name = "ÄndraKategori";
             ÄndraKategori.Size = new Size(112, 34);
             ÄndraKategori.TabIndex = 13;
@@ -223,27 +228,27 @@
             // 
             // TaBortKategori
             // 
-            TaBortKategori.Location = new Point(1448, 246);
+            TaBortKategori.Location = new Point(1448, 239);
             TaBortKategori.Name = "TaBortKategori";
             TaBortKategori.Size = new Size(112, 34);
             TaBortKategori.TabIndex = 14;
             TaBortKategori.Text = "Ta bort";
             TaBortKategori.UseVisualStyleBackColor = true;
             // 
-            // LabelKategori
+            // AktuellKategori
             // 
-            LabelKategori.AutoSize = true;
-            LabelKategori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LabelKategori.Location = new Point(1176, 158);
-            LabelKategori.Name = "LabelKategori";
-            LabelKategori.Size = new Size(73, 21);
-            LabelKategori.TabIndex = 15;
-            LabelKategori.Text = "Kategori";
-            LabelKategori.Click += LabelKategori_Click;
+            AktuellKategori.AutoSize = true;
+            AktuellKategori.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline);
+            AktuellKategori.Location = new Point(1176, 177);
+            AktuellKategori.Name = "AktuellKategori";
+            AktuellKategori.Size = new Size(132, 21);
+            AktuellKategori.TabIndex = 15;
+            AktuellKategori.Text = "Aktuell Kategori:";
+            AktuellKategori.Click += AktuellKategori_Click;
             // 
             // NamnPåKategori
             // 
-            NamnPåKategori.Location = new Point(1176, 182);
+            NamnPåKategori.Location = new Point(1176, 201);
             NamnPåKategori.Name = "NamnPåKategori";
             NamnPåKategori.Size = new Size(362, 23);
             NamnPåKategori.TabIndex = 16;
@@ -252,7 +257,7 @@
             // FiltreringsComboBox
             // 
             FiltreringsComboBox.FormattingEnabled = true;
-            FiltreringsComboBox.Location = new Point(98, 57);
+            FiltreringsComboBox.Location = new Point(32, 60);
             FiltreringsComboBox.Name = "FiltreringsComboBox";
             FiltreringsComboBox.Size = new Size(315, 23);
             FiltreringsComboBox.TabIndex = 17;
@@ -261,7 +266,7 @@
             // 
             // Återställa
             // 
-            Återställa.Location = new Point(1448, 577);
+            Återställa.Location = new Point(1448, 530);
             Återställa.Name = "Återställa";
             Återställa.Size = new Size(112, 34);
             Återställa.TabIndex = 18;
@@ -269,16 +274,16 @@
             Återställa.UseVisualStyleBackColor = true;
             Återställa.Click += Återställa_Click;
             // 
-            // label1
+            // LabelKategoriCBox
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold);
-            label1.Location = new Point(494, 125);
-            label1.Name = "label1";
-            label1.Size = new Size(73, 21);
-            label1.TabIndex = 19;
-            label1.Text = "Kategori";
-            label1.Click += LabelCategory_Click;
+            LabelKategoriCBox.AutoSize = true;
+            LabelKategoriCBox.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline);
+            LabelKategoriCBox.Location = new Point(471, 177);
+            LabelKategoriCBox.Name = "LabelKategoriCBox";
+            LabelKategoriCBox.Size = new Size(73, 21);
+            LabelKategoriCBox.TabIndex = 19;
+            LabelKategoriCBox.Text = "Kategori";
+            LabelKategoriCBox.Click += LabelCategory_Click;
             // 
             // LabelTitle
             // 
@@ -292,18 +297,65 @@
             LabelTitle.TextAlign = ContentAlignment.TopCenter;
             LabelTitle.Click += LabelTitle_Click;
             // 
+            // LabelGetFeed
+            // 
+            LabelGetFeed.AutoSize = true;
+            LabelGetFeed.BackColor = Color.Transparent;
+            LabelGetFeed.Font = new Font("Segoe UI Semibold", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LabelGetFeed.Location = new Point(32, 25);
+            LabelGetFeed.Name = "LabelGetFeed";
+            LabelGetFeed.Size = new Size(213, 30);
+            LabelGetFeed.TabIndex = 22;
+            LabelGetFeed.Text = "Hantera dina poddar\r\n";
+            LabelGetFeed.Click += LabelGetFeed_Click;
+            // 
+            // LabelListPodcasts
+            // 
+            LabelListPodcasts.AutoSize = true;
+            LabelListPodcasts.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            LabelListPodcasts.Location = new Point(32, 248);
+            LabelListPodcasts.Name = "LabelListPodcasts";
+            LabelListPodcasts.Size = new Size(91, 25);
+            LabelListPodcasts.TabIndex = 23;
+            LabelListPodcasts.Text = "Podcasts:";
+            // 
+            // LabelAvsnitt
+            // 
+            LabelAvsnitt.AutoSize = true;
+            LabelAvsnitt.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline);
+            LabelAvsnitt.Location = new Point(831, 252);
+            LabelAvsnitt.Name = "LabelAvsnitt";
+            LabelAvsnitt.Size = new Size(65, 21);
+            LabelAvsnitt.TabIndex = 24;
+            LabelAvsnitt.Text = "Avsnitt:";
+            // 
+            // LabelPodcastDesc
+            // 
+            LabelPodcastDesc.AutoSize = true;
+            LabelPodcastDesc.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold | FontStyle.Underline);
+            LabelPodcastDesc.Location = new Point(831, 642);
+            LabelPodcastDesc.Name = "LabelPodcastDesc";
+            LabelPodcastDesc.Size = new Size(156, 21);
+            LabelPodcastDesc.TabIndex = 25;
+            LabelPodcastDesc.Text = "Avsnittsbeskrivning:";
+            LabelPodcastDesc.Click += LabelPodcastDesc_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(192, 192, 255);
             ClientSize = new Size(1636, 882);
+            Controls.Add(LabelPodcastDesc);
+            Controls.Add(LabelAvsnitt);
+            Controls.Add(LabelListPodcasts);
+            Controls.Add(LabelGetFeed);
             Controls.Add(LabelTitle);
-            Controls.Add(label1);
+            Controls.Add(LabelKategoriCBox);
             Controls.Add(Återställa);
             Controls.Add(FiltreringsComboBox);
             Controls.Add(NamnPåKategori);
-            Controls.Add(LabelKategori);
+            Controls.Add(AktuellKategori);
             Controls.Add(TaBortKategori);
             Controls.Add(ÄndraKategori);
             Controls.Add(LäggTillKategori);
@@ -345,7 +397,7 @@
         private Button LäggTillKategori;
         private Button ÄndraKategori;
         private Button TaBortKategori;
-        private Label LabelKategori;
+        private Label AktuellKategori;
         private TextBox NamnPåKategori;
         private ComboBox FiltreringsComboBox;
         private Button Återställa;
@@ -353,7 +405,11 @@
         private DataGridViewTextBoxColumn ColumnTitel;
         private DataGridViewTextBoxColumn ColumnPublicering;
         private DataGridViewTextBoxColumn ColumnKategori1;
-        private Label label1;
+        private Label LabelKategoriCBox;
         private Label LabelTitle;
+        private Label LabelGetFeed;
+        private Label LabelListPodcasts;
+        private Label LabelAvsnitt;
+        private Label LabelPodcastDesc;
     }
 }

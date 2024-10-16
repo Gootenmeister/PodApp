@@ -172,7 +172,7 @@ namespace PodApp
             MessageBox.Show("Vill du verkligen återställa sidan?", "Action-varning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
         }
 
-        private void LabelKategori_Click(object sender, EventArgs e)
+        private void AktuellKategori_Click(object sender, EventArgs e)
         {
 
         }
@@ -188,6 +188,21 @@ namespace PodApp
         }
 
         private void LabelTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelUrl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelGetFeed_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelPodcastDesc_Click(object sender, EventArgs e)
         {
 
         }
