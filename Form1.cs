@@ -9,7 +9,7 @@ namespace PodApp
     {
         public Form1()
         {
-            InitializeComponent();mk3rokrm32oi
+            InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
