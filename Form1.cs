@@ -24,9 +24,9 @@ namespace PodApp
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void urlLänk(object sender, EventArgs e)
         {
-            String rssUrl = UrlLänk.Text;
+            
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -34,7 +34,7 @@ namespace PodApp
 
         }
 
-        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
+        private void Table(object sender, PaintEventArgs e)
         {
 
         }
@@ -44,19 +44,67 @@ namespace PodApp
 
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
+        private void KategoriNamnTextBox(object sender, EventArgs e)
         {
 
         }
 
         private void LäggTillPodd_Click(object sender, EventArgs e)
         {
-
+            String rssUrl = UrlLänk.Text;
+            if (string.IsNullOrEmpty(rssUrl))
+            {
+                MessageBox.Show("Ange en giltig URL.", "Fel", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+           
         }
 
         private void ÄndraPodd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void VäljKategori_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LäggTillKategori_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Avsnitt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AvsnittInfo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+             
+        }
+
+        private void KategoriGroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FiltreringsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TaBortPodd_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("clicka Här", "" , MessageBoxButtons.OK, MessageBoxIcon.Warning);
+     
         }
     }
 }

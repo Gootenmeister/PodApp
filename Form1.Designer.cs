@@ -37,6 +37,9 @@
             ÄndraPodd = new Button();
             TaBortPodd = new Button();
             dataGridView = new DataGridView();
+            ColumnNamn = new DataGridViewTextBoxColumn();
+            ColumnTitel = new DataGridViewTextBoxColumn();
+            ColumnKategori = new DataGridViewTextBoxColumn();
             Avsnitt = new ListBox();
             AvsnittInfo = new Panel();
             KategoriGroupBox = new GroupBox();
@@ -47,9 +50,6 @@
             NamnPåKategori = new TextBox();
             FiltreringsComboBox = new ComboBox();
             Återställa = new Button();
-            ColumnNamn = new DataGridViewTextBoxColumn();
-            ColumnTitel = new DataGridViewTextBoxColumn();
-            ColumnKategori = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -59,7 +59,7 @@
             UrlLänk.Name = "UrlLänk";
             UrlLänk.Size = new Size(315, 31);
             UrlLänk.TabIndex = 0;
-            UrlLänk.TextChanged += textBox1_TextChanged;
+            UrlLänk.TextChanged += urlLänk;
             // 
             // LabelUrl
             // 
@@ -94,6 +94,7 @@
             VäljKategori.Size = new Size(182, 33);
             VäljKategori.TabIndex = 4;
             VäljKategori.Text = "Välj kategori";
+            VäljKategori.SelectedIndexChanged += VäljKategori_SelectedIndexChanged;
             // 
             // LäggTillPodd
             // 
@@ -123,6 +124,7 @@
             TaBortPodd.TabIndex = 7;
             TaBortPodd.Text = "Ta bort";
             TaBortPodd.UseVisualStyleBackColor = true;
+            TaBortPodd.Click += TaBortPodd_Click;
             // 
             // dataGridView
             // 
@@ -134,6 +136,28 @@
             dataGridView.RowHeadersWidth = 62;
             dataGridView.Size = new Size(515, 591);
             dataGridView.TabIndex = 8;
+            dataGridView.CellContentClick += dataGridView_CellContentClick;
+            // 
+            // ColumnNamn
+            // 
+            ColumnNamn.HeaderText = "Namn";
+            ColumnNamn.MinimumWidth = 8;
+            ColumnNamn.Name = "ColumnNamn";
+            ColumnNamn.Width = 150;
+            // 
+            // ColumnTitel
+            // 
+            ColumnTitel.HeaderText = "Titel";
+            ColumnTitel.MinimumWidth = 8;
+            ColumnTitel.Name = "ColumnTitel";
+            ColumnTitel.Width = 150;
+            // 
+            // ColumnKategori
+            // 
+            ColumnKategori.HeaderText = "Kategori";
+            ColumnKategori.MinimumWidth = 8;
+            ColumnKategori.Name = "ColumnKategori";
+            ColumnKategori.Width = 150;
             // 
             // Avsnitt
             // 
@@ -143,6 +167,7 @@
             Avsnitt.Name = "Avsnitt";
             Avsnitt.Size = new Size(322, 304);
             Avsnitt.TabIndex = 9;
+            Avsnitt.SelectedIndexChanged += Avsnitt_SelectedIndexChanged;
             // 
             // AvsnittInfo
             // 
@@ -151,6 +176,7 @@
             AvsnittInfo.Name = "AvsnittInfo";
             AvsnittInfo.Size = new Size(322, 248);
             AvsnittInfo.TabIndex = 10;
+            AvsnittInfo.Paint += AvsnittInfo_Paint;
             // 
             // KategoriGroupBox
             // 
@@ -161,6 +187,7 @@
             KategoriGroupBox.TabIndex = 11;
             KategoriGroupBox.TabStop = false;
             KategoriGroupBox.Text = "Kategori";
+            KategoriGroupBox.Enter += KategoriGroupBox_Enter;
             // 
             // LäggTillKategori
             // 
@@ -170,6 +197,7 @@
             LäggTillKategori.TabIndex = 12;
             LäggTillKategori.Text = "Lägg Till";
             LäggTillKategori.UseVisualStyleBackColor = true;
+            LäggTillKategori.Click += LäggTillKategori_Click;
             // 
             // ÄndraKategori
             // 
@@ -204,7 +232,7 @@
             NamnPåKategori.Name = "NamnPåKategori";
             NamnPåKategori.Size = new Size(362, 31);
             NamnPåKategori.TabIndex = 16;
-            NamnPåKategori.TextChanged += textBox3_TextChanged;
+            NamnPåKategori.TextChanged += KategoriNamnTextBox;
             // 
             // FiltreringsComboBox
             // 
@@ -214,6 +242,7 @@
             FiltreringsComboBox.Size = new Size(315, 33);
             FiltreringsComboBox.TabIndex = 17;
             FiltreringsComboBox.Text = "Filtrera";
+            FiltreringsComboBox.SelectedIndexChanged += FiltreringsComboBox_SelectedIndexChanged;
             // 
             // Återställa
             // 
@@ -223,27 +252,6 @@
             Återställa.TabIndex = 18;
             Återställa.Text = "Återställa";
             Återställa.UseVisualStyleBackColor = true;
-            // 
-            // ColumnNamn
-            // 
-            ColumnNamn.HeaderText = "Namn";
-            ColumnNamn.MinimumWidth = 8;
-            ColumnNamn.Name = "ColumnNamn";
-            ColumnNamn.Width = 150;
-            // 
-            // ColumnTitel
-            // 
-            ColumnTitel.HeaderText = "Titel";
-            ColumnTitel.MinimumWidth = 8;
-            ColumnTitel.Name = "ColumnTitel";
-            ColumnTitel.Width = 150;
-            // 
-            // ColumnKategori
-            // 
-            ColumnKategori.HeaderText = "Kategori";
-            ColumnKategori.MinimumWidth = 8;
-            ColumnKategori.Name = "ColumnKategori";
-            ColumnKategori.Width = 150;
             // 
             // Form1
             // 
