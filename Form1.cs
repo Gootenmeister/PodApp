@@ -67,13 +67,13 @@ namespace PodApp
 
             try
             {
-              
+
                 XmlDocument rssDoc = new XmlDocument();
 
                 // L‰s RSS frÂn URL
-                rssDoc.Load(rssUrl);  
+                rssDoc.Load(rssUrl);
 
-               
+
                 XmlNodeList rssItems = rssDoc.SelectNodes("rss/channel/item");
 
                 //// Rensa DataGridView innan vi l‰gger till nya data
@@ -85,17 +85,17 @@ namespace PodApp
                     string description = item.SelectSingleNode("description")?.InnerText;
                     string pubDate = item.SelectSingleNode("pubDate")?.InnerText;
 
-                   
+
                     int rowIndex = dataGridView.Rows.Add();
 
                     dataGridView.Rows[rowIndex].Cells[0].Value = namn;
-                    dataGridView.Rows[rowIndex].Cells[1].Value = title;         
+                    dataGridView.Rows[rowIndex].Cells[1].Value = title;
                     dataGridView.Rows[rowIndex].Cells[2].Value = pubDate;
                 }
             }
             catch (Exception ex)
             {
-                
+
                 MessageBox.Show($"Fel vid bearbetning av RSS: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
@@ -115,16 +115,16 @@ namespace PodApp
         private void L‰ggTillKategori_Click(object sender, EventArgs e)
         {
             string namnPÂKategori = NamnPÂKategori.Text.Trim();
-            
 
-            
+
+
             if (!string.IsNullOrEmpty(namnPÂKategori))
             {
                 // Skapa en ny Label
                 Label newLabel = new Label();
                 newLabel.Text = namnPÂKategori;
                 newLabel.AutoSize = true;
-                
+
 
                 KategoriGroupBox.Controls.Add(newLabel);
                 NamnPÂKategori.Clear();
@@ -173,6 +173,21 @@ namespace PodApp
         }
 
         private void LabelKategori_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelNamn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelCategory_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelTitle_Click(object sender, EventArgs e)
         {
 
         }
