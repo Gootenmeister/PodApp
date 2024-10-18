@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace PodApp // trelagersarkitektur - behövs annan namespace eller hur länkar man olika projs?
 {
     [XmlSerializerAssembly] // kolla om rätt serializer
-    public class XMLCer
+    public class XMLSer
     {
 
         private void WriteXML(List<T> poddar/*, string filePath */)
@@ -22,13 +22,17 @@ namespace PodApp // trelagersarkitektur - behövs annan namespace eller hur län
             serializer.Serialize(fs, poddar);
             fs.Close();
 
-            ReadXML(); // laddar om efter den har skrivit någon ny data
+            ReadXML(poddar); // laddar om efter den har skrivit någon ny data
         }
 
-        public void ReadXML()
+        public List<T> ReadXML(List<T> poddar)
         {
             //läser in xmlfilen och gör om till en <Lista> som kan printas
-
+            XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+            FileStream fs = new FileStream(@"\fil.xml", FileMode.Open, FileAccess.Read);
+            serializer.Serialize(fs, poddar);
+            fs.Close();
+            return poddar;
         }
 
 
