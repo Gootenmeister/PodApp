@@ -14,6 +14,10 @@ namespace PodApp
     {
         private XmlDocument rssDoc;
         private XmlNodeList rrsItems;
+        private XMLSer<T> xmlData = new XMLSer<T>();
+        private string filePath = @"\resources\xml.xml";
+
+        
 
         public Form1()
         {
@@ -22,7 +26,8 @@ namespace PodApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            //länka XMLSer.cs hit för att förenkla
+            List<Podd>
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
