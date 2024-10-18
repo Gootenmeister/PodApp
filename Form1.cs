@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Net.Http;
 using System.Xml;
 using System.IO;
+using System.Collections.Generic;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -14,8 +15,8 @@ namespace PodApp
     {
         private XmlDocument rssDoc;
         private XmlNodeList rrsItems;
-        private XMLSer<T> xmlData = new XMLSer<T>();
-        private string filePath = @"\resources\xml.xml";
+        private XMLSer<Podd> xmlData = new XMLSer<Podd>();
+        private string filePath = @"\xml.xml";
 
         
 
@@ -27,7 +28,14 @@ namespace PodApp
         private void Form1_Load(object sender, EventArgs e)
         {
             //länka XMLSer.cs hit för att förenkla
-            List<Podd>
+            List<Podd> poddar = xmlData.ReadXML(filePath);
+
+            foreach (Podd podd in poddar)
+            {
+                int rowIndex = dataGridView.Rows.Add();
+                dataGridView.Rows[rowIndex].Cells[0].Value = podd.Namn;
+                dataGridView.Rows[rowIndex].Cells[1].Value = podd.Titel;
+            }
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,11 +96,20 @@ namespace PodApp
                 }
 
                 string officielltNamn = titleNode.InnerText;
-
+                Podd nyPodd = new Podd(namn, officielltNamn);
                 int rowIndex = dataGridView.Rows.Add();
+
 
                 dataGridView.Rows[rowIndex].Cells[0].Value = namn;
                 dataGridView.Rows[rowIndex].Cells[1].Value = officielltNamn;
+            
+                List<Podd> poddar = xmlData.ReadXML(filePath);
+
+                
+                poddar.Add(nyPodd);
+
+                
+                xmlData.WriteXML( poddar, filePath);
             }
             catch (Exception ex)
             {

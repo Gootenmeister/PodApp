@@ -13,30 +13,43 @@ namespace PodApp // trelagersarkitektur - behövs annan namespace eller hur län
     public class XMLSer<T>
     {
 
-        private void WriteXML(List<T> poddar/*, string filePath */)
+        public void WriteXML(List<Podd> poddar, string filePath )
 
         {
             //här sker serialiseringen.
-         
+
             XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-            FileStream fs = new FileStream(@"\fil.xml", FileMode.Append, FileAccess.Write);
+            FileStream fs = new FileStream(@"xml.xml", FileMode.Append, FileAccess.Write);
             serializer.Serialize(fs, poddar);
             fs.Close();
 
-            ReadXML(poddar); // laddar om efter den har skrivit någon ny data
+            ReadXML(filePath); // laddar om efter den har skrivit någon ny data
         }
 
-        public List<T> ReadXML(List<T> poddar)
+        //public List<T> ReadXML(List<T> poddar)
+        //{
+        //    //läser in xmlfilen och gör om till en <Lista> som kan printas
+
+        //    XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
+        //    FileStream fs = new FileStream(@"\fil.xml", FileMode.Open, FileAccess.Read);
+        //    poddar = (List<T>)serializer.Deserialize(fs, poddar); //not null knull
+        //    fs.Close();
+        //    return poddar;
+        //}
+        // Läs data från en XML-fil
+        public List<T> ReadXML(string filePath)
         {
-            //läser in xmlfilen och gör om till en <Lista> som kan printas
+            if (!File.Exists(filePath))
+            {
+                return new List<T>();  // Om filen inte finns, returnera en tom lista
+            }
 
             XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-            FileStream fs = new FileStream(@"\fil.xml", FileMode.Open, FileAccess.Read);
-            poddar = (List<T>)serializer.Deserialize(fs, poddar); //not null knull
-            fs.Close();
-            return poddar;
+            using (StreamReader reader = new StreamReader(filePath))
+            {
+                return (List<T>)serializer.Deserialize(reader);
+            }
+
         }
-
-
     }
 }
