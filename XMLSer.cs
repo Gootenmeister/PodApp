@@ -12,13 +12,17 @@ namespace PodApp // trelagersarkitektur - behövs annan namespace eller hur län
     [XmlSerializerAssembly] // kolla om rätt serializer
     public class XMLSer<T>
     {
+
         //Skriver datan till en XML-fil
         public void WriteXML(List<Podd> poddar, string filePath)
         {
+            System.Diagnostics.Debug.WriteLine("XMLWrite körs");
+
             XmlSerializer serializer = new XmlSerializer(typeof(List<T>));
-            using (FileStream fs = new FileStream(@"xml.xml", FileMode.Append, FileAccess.Write))
+            using (FileStream fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
             {
                 serializer.Serialize(fs, poddar);
+                System.Diagnostics.Debug.WriteLine("serialiserad");
             }
             ReadXML(filePath);
         }

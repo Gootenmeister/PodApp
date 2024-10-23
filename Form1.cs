@@ -16,9 +16,11 @@ namespace PodApp
         private XmlDocument rssDoc;
         private XmlNodeList rrsItems;
         private XMLSer<Podd> xmlData = new XMLSer<Podd>();
-        private string filePath = @"\xml.xml";
+        private string filePath = "poddlista.xml";
 
-        
+
+
+
 
         public Form1()
         {
@@ -107,10 +109,9 @@ namespace PodApp
 
                 
                 poddar.Add(nyPodd);
-
+                System.Diagnostics.Debug.WriteLine("Podd tillagd");
                 
-                xmlData.WriteXML( poddar, filePath);
-            }
+                xmlData.WriteXML( poddar, filePath);           }
             catch (Exception ex)
             {
                 MessageBox.Show($"Fel vid bearbetning av RSS: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
